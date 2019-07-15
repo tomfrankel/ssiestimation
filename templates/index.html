@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+   background-color: #45a049;
+}
+
+
+</style>
+<style>
+            .container .box {
+                width:90%;
+                display:table;
+            }
+            .container .box .box-row {
+                display:table-row;
+            }
+            .container .box .box-cell {
+                display:table-cell;
+                width:33%;
+                padding:10px;
+            }
+            .container .box .box-cell.box1 {
+                text-align:justify;
+            }
+            .container .box .box-cell.box2 {
+                text-align:justify
+            }
+            .container .box .box-cell.box3 {
+                text-align:justify;
+            }
+        </style>
+
+
+
+<body>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <h1 style="text-align: center">Estimation Calculator</h1>
+
+
+<h3>Droppipe</h3><br><br>
+
+  <form action="" method="post">
+    <label for="droppipe_size">Size</label>
+   <select id="droppipe_size" name="droppipe_size" required>
+        <option value="">--Select Size--</option>
+        {% for s in size %}
+      <option value= {{ s.id }}>{{ s.size }}</option>
+            {% endfor %}
+    </select>
+      <label for="droppipe_material">Material</label>
+    <select id="droppipe_material" name="droppipe_material" required>
+       <option value="" >--Select Material--</option>
+          {% for m in material %}
+      <option value= {{ m.id }}>{{m.material }}</option>
+            {% endfor %}
+    </select>
+
+ <label for="droppipe_Piping">Piping</label>
+    <select id="droppipe_Piping" name="droppipe_Piping" required>
+        <option value="">--Select Piping--</option>
+             {% for p in piping %}
+      <option value= {{ p.id }}>{{ p.piping }}</option>
+            {% endfor %}
+    </select>
+
+  <label for="droppipe_length">Length</label>
+    <input type="text" id="droppipe_length" required onblur="show_price(this)" name="droppipe_length" placeholder="length..">
+
+   <label for="price_droppipee" id="price_droppipee" style="display:none">Price</label>
+    <input type="text" id="price_droppipe" name="price_droppipe" required placeholder="Price.." style="display:none">
+      <input type="hidden" value="1" id="dynamicid">
+
+       <div class="">
+            <table class="" style="">
+               <thead>
+                   <tr id="droppipe_tr">
+                         <th style="width: 212px;text-align: center;">Accessories</th>
+                               <th style="width: 212px;text-align: center;">Size</th>
+                              <th style="width: 212px;text-align: center;">type</th>
+                              <th style="width: 212px;text-align: center;">Quntity</th>
+                              <th style="width: 212px;text-align: center;">Price</th>
+
+                            <th style="width: 125px;text-align: center">Action</th>
+                                  </tr>
+
+                          </thead>
+                         <tbody id="droppipe_table">
+                           <td>
+                            <select style="width: 207px; margin-left: 18px;" onchange="show_size_type_droppipe(this)" id="droppipe_accessories" name="droppipe_accessories">
+                                <option>--Select Accessories--</option>
+                                {% for a in accessories_droppipe %}
+                                <option value={{ a.id }}>{{ a.name }}</option>
+                                {% endfor %}
+                            </select>
+                             </td>
+                            <td>
+                                    <select style="display:none;width: 207px; margin-left: 18px;" id="access_size" name="access_size">
+                                  </select>
+                                </td>
+                              <td>
+                                    <select style="display:none;width: 207px; margin-left: 18px;" id="access_type" name="access_type">
+                                      </select>
+                              </td>
+                               <td>
+                                    <input type="text"  style="width: 207px; margin-left: 18px;" id="droppipe_access_quntity" onblur="show_acccess_price1(this)" name="droppipe_quantity" placeholder="Quntity..">
+                               </td>
+                              <td>
+                                 <input type="text" style="width: 207px; margin-left: 18px;" id="droppipe_access_price" name="droppipe_price" placeholder="Price..">
+                              </td>
+                               <td>
+                                  <div class="input-group-btn box-cell box3" style="    margin-top: 25px !important;">
+                                    <button style="margin-left: 27px;" class="btn btn-success add-more" type="button" onclick="addmore()"><i class="glyphicon glyphicon-plus"></i> Add</button>
+                                  </div>
+                               </td>
+                       </tbody>
+            </table>
+     </div>
+
+<h3>Manifold</h3><br><br>
+      <label for="manifold_size">Size</label>
+    <select id="manifold_size" name="manifold_size" required>
+        <option value="">--Select Size--</option>
+        {% for s in size %}
+      <option value= {{ s.id }}>{{ s.size }}</option>
+            {% endfor %}
+    </select>
+      <label for="manifold_material">Material</label>
+    <select id="manifold_material" name="manifold_material" required>
+        <option value="">--Select Size--</option>
+        {% for m in material %}
+      <option value= {{ m.id }}>{{m.material }}</option>
+            {% endfor %}
+    </select>
+
+ <label for="manifold_Piping">Piping</label>
+    <select id="manifold_Piping"  name="manifold_Piping" required>
+        <option value="">--Select Piping--</option>
+     {% for p in piping %}
+      <option value= {{ p.id }}>{{ p.piping }}</option>
+            {% endfor %}
+    </select>
+
+  <label for="manifold_length">Length</label>
+    <input type="text" id="manifold_length" onblur="manifold_price(this)" name="manifold_length" placeholder="length..">
+
+ <label for="price_manifoldd" id="price_manifoldd" style="display:none">Price</label>
+    <input type="text" id="price_manifold" name="price_manifold" placeholder="Price.." style="display:none">
+
+ <!-- <label for="manifold_accessories">Accessories</label>
+    <select id="manifold_accessories" onchange="show_size_type_manifold(this)"  name="manifold_accessories">
+      <option>--Select Accessories--</option>
+     {% for a in accessories_manifold %}
+      <option value= {{ a.id }}>{{ a.name }}</option>
+            {% endfor %}
+    </select>
+      <label for="access_sizedd" id="access_manifold_sizedd" style="display:none">Size</label>
+    <select  style="display:none"  id="access_manifold_size" name="access_typeee">
+
+    </select>
+      <label for="access_typee" id="access_manifold_typee" style="display:none">Type</label>
+    <select  style="display:none"  id="access_manifold_type" name="access_size">
+
+    </select> -->
+
+  
+       <div class="">
+            <table class="" style="" id="manifold_table1">
+               <thead>
+                   <tr id="manifold_tr">
+                         <th style="width: 212px;text-align: center;">Accessories</th>
+                               <th style="width: 212px;text-align: center;">Size</th>
+                              <th style="width: 212px;text-align: center;">type</th>
+                              <th style="width: 212px;text-align: center;">Quntity</th>
+                              <th style="width: 212px;text-align: center;">Price</th>
+
+                            <th style="width: 125px;text-align: center">Action</th>
+                                  </tr>
+
+                          </thead>
+                         <tbody id="manifold_table">
+                           <td>
+                            <select style="width: 207px; margin-left: 18px;" onchange="show_size_type_manifold(this)" id="manifold_accessories" name="manifold_accessories">
+                                <option>--Select Accessories--</option>
+                                {% for a in accessories_manifold %}
+                                <option value={{ a.id }}>{{ a.name }}</option>
+                                {% endfor %}
+                            </select>
+                             </td>
+                            <td>
+                                    <select style="display:none;width: 207px; margin-left: 18px;" id="access_manifold_size" name="access_manifold_size">
+                                  </select>
+                                </td>
+                              <td>
+                                    <select style="display:none;width: 207px; margin-left: 18px;" id="access_manifold_type" name="access_manifold_type">
+                                      </select>
+                              </td>
+                               <td>
+                                    <input type="text"  style="width: 207px; margin-left: 18px;" id="manifold_access_quntity" onblur="show_manifold_acccess_price(this)" name="manifold_access_quntity" placeholder="Quntity..">
+                               </td>
+                              <td>
+                                 <input type="text" style="width: 207px; margin-left: 18px;" id="manifold_access_price" name="manifold_access_price" placeholder="Price..">
+                              </td>
+                               <td>
+                                  <div class="input-group-btn box-cell box3" style="margin-top: 25px !important;">
+                                    <button style="margin-left: 27px;" class="btn btn-success add-more" type="button" onclick="manifold_addmore()"><i class="glyphicon glyphicon-plus"></i> Add</button>
+                                  </div>
+                               </td>
+                       </tbody>
+            </table>
+     </div>
+
+<h3>Headers</h3><br><br>
+
+<div>
+    <label for="headers_size">Size</label>
+    <select id="headers_size" name="headers_size" required>
+        <option value="">--Select Size--</option>
+        {% for s in size %}
+      <option value= {{ s.id }}>{{ s.size }}</option>
+            {% endfor %}
+    </select>
+      <label for="headers_material">Material</label>
+    <select id="headers_material" name="headers_material" required>
+       <option value="">--Select Material--</option>
+     {% for m in material %}
+      <option value= {{ m.id }}>{{m.material }}</option>
+            {% endfor %}
+    </select>
+
+ <label for="headers_Piping">Piping</label>
+    <select id="headers_Piping" name="headers_Piping" required>
+        <option value="">--Select Piping--</option>
+    {% for p in piping %}
+      <option value= {{ p.id }}>{{ p.piping }}</option>
+            {% endfor %}
+    </select>
+
+  <label for="headers_length">Length</label>
+    <input type="text" required id="headers_length" onblur="header_price(this)" name="headers_length" placeholder="length..">
+
+<label for="price_headerr" id="price_headerr" style="display:none">Price</label>
+    <input type="text" required id="price_header" name="price_header" placeholder="Price.." style="display:none">
+<!-- 
+ <label for="headers_accessories">Accessories</label>
+    <select id="headers_accessories" onchange="show_size_type_header(this)" name="headers_accessories">
+      <option>--Select Accessories--</option>
+     {% for a in accessories_headers %}
+      <option value= {{ a.id }}>{{ a.name }}</option>
+            {% endfor %}
+    </select>
+      <label for="headers_sizedd_drop" id="headers_sizedd_drop" style="display:none">Size</label>
+    <select  style="display:none"  id="headers_size_drop" name="headers_size">
+
+    </select>
+      <label for="access_typee" id="headers_typee" style="display:none">Type</label>
+    <select  style="display:none"  id="headers_type" name="headers_type">
+
+    </select> -->
+      <div class="">
+            <table class="" style="" id="header_table1">
+               <thead>
+                   <tr id="header_tr">
+                         <th style="width: 212px;text-align: center;">Accessories</th>
+                               <th style="width: 212px;text-align: center;">Size</th>
+                              <th style="width: 212px;text-align: center;">type</th>
+                              <th style="width: 212px;text-align: center;">Quntity</th>
+                              <th style="width: 212px;text-align: center;">Price</th>
+
+                            <th style="width: 125px;text-align: center">Action</th>
+                                  </tr>
+
+                          </thead>
+                         <tbody id="header_table">
+                           <td>
+                            <select style="width: 207px; margin-left: 18px;" id="headers_accessories" onchange="show_size_type_header(this)" name="headers_accessories">
+                                <option>--Select Accessories--</option>
+                                {% for a in accessories_headers %}
+                                <option value={{ a.id }}>{{ a.name }}</option>
+                                {% endfor %}
+                            </select>
+                             </td>
+                            <td>
+                                    <select style="display:none;width: 207px; margin-left: 18px;" id="headers_size_drop" name="headers_size">
+                                  </select>
+                                </td>
+                              <td>
+                                    <select style="display:none;width: 207px; margin-left: 18px;"  id="headers_type" name="headers_type">>
+                                      </select>
+                              </td>
+                               <td>
+                                    <input type="text"  style="width: 207px; margin-left: 18px;" id="header_access_quntity" onblur="show_header_acccess_price(this)" name="header_access_quntity" placeholder="Quntity..">
+                               </td>
+                              <td>
+                                 <input type="text" style="width: 207px; margin-left: 18px;" id="header_access_price" name="header_access_price" placeholder="Price..">
+                              </td>
+                               <td>
+                                  <div class="input-group-btn box-cell box3" style="margin-top: 25px !important;">
+                                    <button style="margin-left: 27px;" class="btn btn-success add-more" type="button" onclick="header_addmore()"><i class="glyphicon glyphicon-plus"></i> Add</button>
+                                  </div>
+                               </td>
+                       </tbody>
+            </table>
+     </div>
+    <input type="submit" value="Submit">
+    {% if total_price %}
+    <table class="" style="" id="toatl_price">
+               <thead>
+                   <tr id="total">
+                         <th style="width: 212px;text-align: center; background-color: #4CAF50">Download Details in Excel</th>
+                               <th style="width: 212px;text-align: center;background-color: #4CAF50">Total Price</th>
+                                  </tr>
+                          </thead>
+                         <tbody id="hj">
+                           <tr>
+                             <td>
+                               <span style="text-align: center;font-size: 23px;margin-left: 172px;"><a href='totalcost/{{ excel_id }}'><div class="btn btn-primary" style="width:115px; height:25px; line-height: 11px; margin-left:30px; color: white;">Export Details</div></a></span>
+                            </td><td>
+                                   <span style="text-align: center;font-size: 23px;margin-left: 400px;"> {{ total_price }}</span>
+                                </td>
+
+                       </tr></tbody>
+            </table>
+    {% endif %}
+
+    </div>
+  </form>
+</div>
+</body>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table, td, th {
+  border: 1px solid black;
+   height: 50px;
+}
+
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+
+    function show_size_type_droppipe(thisval,dynamicid = '') {
+             selected_acc = thisval.value
+             savedata = {'selected_acc':selected_acc}
+            $.ajax({
+                url: '/droppipe_accessories/',
+                async: false,
+                data: savedata,
+                type: "POST",
+                datatype: 'json',
+                success: function (response) {
+             var optionlist = "<option value='0'>---Select Size--</option>";
+            for (i = 0; i < response.size.length; i++) {
+            optionlist += "<option value='" +response.size[i]  + "'>" +response.size[i] + "</option>";
+            }
+            if (dynamicid != ''){
+                 var idval = '#access_sizedd_' + dynamicid;
+                $(idval).show()
+                 var idval2 = '#access_size_' + dynamicid;
+                 $(idval2).html(optionlist).show();
+            }
+            else {
+                $("#access_sizedd").show()
+                $('#access_size').html(optionlist).show();
+            }
+
+             if (response.stype){
+                  var optionlist = "<option value='0'>---Select Type--</option>";
+            for (i = 0; i < response.stype.length; i++) {
+            optionlist += "<option value='" +response.stype[i]  + "'>" +response.stype[i] + "</option>";
+            }
+             if (dynamicid != ''){
+               var idval3 = '#access_typee_' + dynamicid;
+                $(idval3).show()
+                var idval4 = '#access_type_' + dynamicid;
+                 $(idval4).html(optionlist).show();
+             }
+                 else{
+                  $("#access_typee").show()
+              $('#access_type').html(optionlist).show();
+             }
+
+
+
+
+               }
+                },
+
+                error: function (response) {
+
+                }
+
+            })}
+
+
+    function show_size_type_manifold(thisval,dynamicid='') {
+             selected_acc = thisval.value
+             savedata = {'selected_acc':selected_acc}
+            $.ajax({
+                url: '/manifold_accessories/',
+                async: false,
+                data: savedata,
+                type: "POST",
+                datatype: 'json',
+                success: function (response) {
+             var optionlist = "<option value='0'>---Select Size--</option>";
+            for (i = 0; i < response.size.length; i++) {
+            optionlist += "<option value='" +response.size[i]  + "'>" +response.size[i] + "</option>";
+            }
+             if (dynamicid != ''){
+                 var idval2 = '#manifold_size_' + dynamicid;
+                 $(idval2).html(optionlist).show();
+            }
+            else{
+             $("#access_manifold_sizedd").show()
+              $('#access_manifold_size').html(optionlist).show();}
+
+             if (response.stype){
+                  var optionlist = "<option value='0'>---Select Type--</option>";
+            for (i = 0; i < response.stype.length; i++) {
+            optionlist += "<option value='" +response.stype[i]  + "'>" +response.stype[i] + "</option>";
+            }
+            if (dynamicid != ''){
+              var idval7 = '#manifold_type_' + dynamicid;
+               $(idval7).html(optionlist).show();
+            }
+
+             else{
+             $("#access_manifold_typee").show()
+              $('#access_manifold_type').html(optionlist).show();}
+               }
+
+
+                },
+                error: function (response) {
+
+                }
+
+            })}
+
+
+
+
+
+
+    function show_size_type_header(thisval,dynamicid='') {
+             selected_acc = thisval.value
+             savedata = {'selected_acc':selected_acc}
+            $.ajax({
+                url: '/header_accessories/',
+                async: false,
+                data: savedata,
+                type: "POST",
+                datatype: 'json',
+                success: function (response) {
+             var optionlist = "<option value='0'>---Select Size--</option>";
+
+            for (i = 0; i < response.size.length; i++) {
+            optionlist += "<option value='" +response.size[i]  + "'>" +response.size[i] + "</option>";
+            }
+             if (dynamicid != ''){
+              var idval7 = '#header_size_' + dynamicid;
+               $(idval7).html(optionlist).show();
+            }
+            else{
+
+             $("#headers_size_drop").show()
+              $('#headers_size_drop').html(optionlist).show();}
+
+             if (response.stype){
+                  var optionlist = "<option value='0'>---Select Type--</option>";
+            for (i = 0; i < response.stype.length; i++) {
+            optionlist += "<option value='" +response.stype[i]  + "'>" +response.stype[i] + "</option>";
+            }
+            if (dynamicid != ''){
+              var idval7 = '#header_type_' + dynamicid;
+               $(idval7).html(optionlist).show();
+            }
+
+             else{
+              $('#headers_type').html(optionlist).show();}
+               }
+                },
+                error: function (response) {
+
+                }
+            })}
+
+   function show_price(thisval){
+            length = thisval.value
+            size = $('#droppipe_size').val()
+            material = $('#droppipe_material').val()
+            piping = $('#droppipe_Piping').val()
+            data = {'length':length,'size':size,'material':material,'piping':piping}
+            $.ajax({
+                url: '/show_price/',
+                async: false,
+                data: data,
+                type: "POST",
+                datatype: 'json',
+                success: function (response) {
+                $("#price_droppipe").val(response).show()
+                $("#price_droppipee").show()
+
+                }
+
+            })}
+
+      function show_acccess_price1(thisval,dynamicid=''){
+            length = thisval.value
+            if (dynamicid != ''){
+             size = $('#access_size_' + dynamicid).val()
+            accessories = $('#droppipe_accessories_' + dynamicid).val()
+            type = $('#access_type_' + dynamicid).val()
+            }
+            else{
+            size = $('#access_size').val()
+            accessories = $('#droppipe_accessories').val()
+            type = $('#access_type').val()}
+            data = {'length':length,'size':size,'accessories':accessories,'type':type}
+            $.ajax({
+                url: '/show_accessories_priceinfo/',
+                async: false,
+                data: data,
+                type: "POST",
+                datatype: 'json',
+                success: function (response) {
+                  if (dynamicid != ''){
+                    var idval4 = '#droppipe_access_price_' + dynamicid;
+                    $(idval4).val(response)
+                  }
+                    else{
+                $("#droppipe_access_price").val(response)}
+
+                }
+
+            })
+          }
+
+
+   function show_manifold_acccess_price(thisval,dynamicid=''){
+            length = thisval.value
+            if (dynamicid != ''){
+             size = $('#manifold_size_' + dynamicid).val()
+            accessories = $('#manifold_accessories_' + dynamicid).val()
+            type = $('#manifold_type_' + dynamicid).val()
+            }
+            else{
+            size = $('#access_manifold_size').val()
+            accessories = $('#manifold_accessories').val()
+            type = $('#access_manifold_type').val()}
+            data = {'length':length,'size':size,'accessories':accessories,'type':type}
+            $.ajax({
+                url: '/show_accessories_priceinfo/',
+                async: false,
+                data: data,
+                type: "POST",
+                datatype: 'json',
+                success: function (response) {
+                  if (dynamicid != ''){
+                    var idval4 = '#manifold_access_price_' + dynamicid;
+                    $(idval4).val(response)
+                  }
+                    else{
+                $("#manifold_access_price").val(response)}
+
+                }
+
+            })
+          }
+
+
+  function show_header_acccess_price(thisval,dynamicid=''){
+            length = thisval.value
+            if (dynamicid != ''){
+             size = $('#header_size_' + dynamicid).val()
+            accessories = $('#header_accessories_' + dynamicid).val()
+            type = $('#header_type_' + dynamicid).val()
+            }
+            else{
+            size = $('#headers_size_drop').val()
+            accessories = $('#headers_accessories').val()
+            type = $('#headers_type').val()}
+            data = {'length':length,'size':size,'accessories':accessories,'type':type}
+            $.ajax({
+                url: '/show_accessories_priceinfo/',
+                async: false,
+                data: data,
+                type: "POST",
+                datatype: 'json',
+                success: function (response) {
+                  if (dynamicid != ''){
+                    var idval4 = '#header_access_price_' + dynamicid;
+                    $(idval4).val(response)
+                  }
+                    else{
+                $("#header_access_price").val(response)}
+
+                }
+
+            })
+          }        
+
+
+
+
+            function manifold_price(thisval){
+            length = thisval.value
+            size = $('#manifold_size').val()
+            material = $('#manifold_material').val()
+            piping = $('#manifold_Piping').val()
+            data = {'length':length,'size':size,'material':material,'piping':piping}
+            $.ajax({
+                url: '/manifold_price/',
+                async: false,
+                data: data,
+                type: "POST",
+                datatype: 'json',
+                success: function (response) {
+                $("#price_manifold").val(response).show()
+                $("#price_manifoldd").show()
+
+                }
+
+            })}
+
+            function header_price(thisval){
+            length = thisval.value
+            size = $('#headers_size').val()
+            material = $('#headers_material').val()
+            piping = $('#headers_Piping').val()
+            data = {'length':length,'size':size,'material':material,'piping':piping}
+            $.ajax({
+                url: '/header_price/',
+                async: false,
+                data: data,
+                type: "POST",
+                datatype: 'json',
+                success: function (response) {
+                $("#price_header").val(response).show()
+                $("#price_headerr").show()
+
+                }
+
+            })}
+
+</script>
+
+
+<script type="text/javascript">
+
+var dynamicid =$('#dynamicid').val()
+      function addmore(){
+           var dynamicid =Number($('#dynamicid').val())
+           var dynamicid = dynamicid + 1;
+          html1 = '<tr id="droppipe_table_' + dynamicid + '"> <td><select style="width: 207px; margin-left: 18px;" onchange="show_size_type_droppipe(this,'+ dynamicid+')" id="droppipe_accessories_' + dynamicid + '" name="droppipe_accessories"><option>--Select Accessories--</option>{% for a in accessories_droppipe %}<option value={{ a.id }}>{{ a.name }}</option>{% endfor %}</select> </td><td><select style="display:none;width: 207px; margin-left: 18px;" id="access_size_' + dynamicid + '" name="access_size"></select></td><td><select style="display:none;width: 207px; margin-left: 18px;" id="access_type_' + dynamicid + '" name="access_type"></select></td><td><input type="text"  style="width: 207px; margin-left: 18px;" id="droppipe_access_quntity_' + dynamicid + '" name="droppipe_quantity" onblur="show_acccess_price1(this,'+ dynamicid +')" placeholder="Quntity"></td><td><input type="text" style="width: 207px; margin-left: 18px;" id="droppipe_access_price_' + dynamicid + '" name="droppipe_price" placeholder="Price.."></td><td><div class="input-group-btn box-cell box3" style="margin-top: 25px !important;"><button style="margin-left: 27px;" class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-plus"></i> Remove</button></div></td></tbody>'
+          $("#droppipe_table").append(html1);
+          $('#dynamicid').val(dynamicid)
+      }
+
+
+      $("body").on("click",".remove",function(){
+          $(this).parent().parent().parent().remove();
+      });
+
+
+
+var dynamicid =$('#dynamicid').val()
+      function manifold_addmore(){
+           var dynamicid =Number($('#dynamicid').val())
+           var dynamicid = dynamicid + 1;
+          html1 = '<tr id="manifold_table_' + dynamicid + '"> <td><select style="width: 207px; margin-left: 18px;" onchange="show_size_type_manifold(this,'+ dynamicid+')" id="manifold_accessories_' + dynamicid + '" name="manifold_accessories"><option>--Select Accessories--</option>{% for a in accessories_manifold %}<option value={{ a.id }}>{{ a.name }}</option>{% endfor %}</select> </td><td><select style="display:none;width: 207px; margin-left: 18px;" id="manifold_size_' + dynamicid + '" name="access_manifold_size"></select></td><td><select style="display:none;width: 207px; margin-left: 18px;" id="manifold_type_' + dynamicid + '" name="access_manifold_type"></select></td><td><input type="text"  style="width: 207px; margin-left: 18px;" id="manifold_access_quntity_' + dynamicid + '" name="manifold_access_quntity" onblur="show_manifold_acccess_price(this,'+ dynamicid +')" placeholder="Quntity"></td><td><input type="text" style="width: 207px; margin-left: 18px;" id="manifold_access_price_' + dynamicid + '" name="manifold_access_price" placeholder="Price.."></td><td><div class="input-group-btn box-cell box3" style="margin-top: 25px !important;"><button style="margin-left: 27px;" class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-minus"></i> Remove</button></div></td></tbody>'
+          $("#manifold_table").append(html1);
+          $('#dynamicid').val(dynamicid)
+      }
+
+
+      $("body").on("click",".remove",function(){
+          $(this).parent().parent().parent().remove();
+      });
+
+
+var dynamicid =$('#dynamicid').val()
+      function header_addmore(){
+           var dynamicid =Number($('#dynamicid').val())
+           var dynamicid = dynamicid + 1;
+          html1 = '<tr id="header_table_' + dynamicid + '"> <td><select style="width: 207px; margin-left: 18px;" onchange="show_size_type_header(this,'+ dynamicid+')" id="header_accessories_' + dynamicid + '" name="header_accessories"><option>--Select Accessories--</option>{% for a in accessories_droppipe %}<option value={{ a.id }}>{{ a.name }}</option>{% endfor %}</select> </td><td><select style="display:none;width: 207px; margin-left: 18px;" id="header_size_' + dynamicid + '" name="headers_size"></select></td><td><select style="display:none;width: 207px; margin-left: 18px;" id="header_type_' + dynamicid + '" name="headers_type"></select></td><td><input type="text"  style="width: 207px; margin-left: 18px;" id="header_access_quntity_' + dynamicid + '" name="header_access_quntity" onblur="show_header_acccess_price(this,'+ dynamicid +')" placeholder="Quntity"></td><td><input type="text" style="width: 207px; margin-left: 18px;" id="header_access_price_' + dynamicid + '" name="header_access_price" placeholder="Price.."></td><td><div class="input-group-btn box-cell box3" style="margin-top: 25px !important;"><button style="margin-left: 27px;" class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-minus"></i> Remove</button></div></td></tbody>'
+          $("#header_table").append(html1);
+          $('#dynamicid').val(dynamicid)
+      }
+
+
+      $("body").on("click",".remove",function(){
+          $(this).parent().parent().parent().remove();
+      });
+
+</script>
+
+</html>
