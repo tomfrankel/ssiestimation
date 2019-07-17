@@ -9,6 +9,7 @@ input[type=text], select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  color: black;
 }
 
 input[type=submit] {
@@ -23,7 +24,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-   background-color: #45a049;
+  background-color: #45a049;
 }
 
 
@@ -50,17 +51,24 @@ input[type=submit]:hover {
             .container .box .box-cell.box3 {
                 text-align:justify;
             }
+    body {
+            background-image: url("http://b.rgbimg.com/users/x/xy/xymonau/600/mijgzXq.jpg")
+
+    }
+    body {
+        background-size: 1600px 1000px;
+    }
         </style>
 
 
-
+<div class="container">
 <body>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <h1 style="text-align: center">Estimation Calculator</h1>
+  <h1 style="text-align: center;font-family: Times New Roman;">Estimation Calculator</h1>
 
 
-<h3>Droppipe</h3><br><br>
+<h3 style="font-family: Times New Roman;color: black; ">Droppipe</h3><br><br>
 
   <form action="" method="post">
     <label for="droppipe_size">Size</label>
@@ -100,7 +108,7 @@ input[type=submit]:hover {
                          <th style="width: 212px;text-align: center;">Accessories</th>
                                <th style="width: 212px;text-align: center;">Size</th>
                               <th style="width: 212px;text-align: center;">type</th>
-                              <th style="width: 212px;text-align: center;">Quntity</th>
+                              <th style="width: 212px;text-align: center;">quantity</th>
                               <th style="width: 212px;text-align: center;">Price</th>
 
                             <th style="width: 125px;text-align: center">Action</th>
@@ -125,7 +133,7 @@ input[type=submit]:hover {
                                       </select>
                               </td>
                                <td>
-                                    <input type="text"  style="width: 207px; margin-left: 18px;" id="droppipe_access_quntity" onblur="show_acccess_price1(this)" name="droppipe_quantity" placeholder="Quntity..">
+                                    <input type="text"  style="width: 207px; margin-left: 18px;" id="droppipe_access_quantity" onblur="show_acccess_price1(this)" name="droppipe_quantity" placeholder="quantity..">
                                </td>
                               <td>
                                  <input type="text" style="width: 207px; margin-left: 18px;" id="droppipe_access_price" name="droppipe_price" placeholder="Price..">
@@ -139,7 +147,7 @@ input[type=submit]:hover {
             </table>
      </div>
 
-<h3>Manifold</h3><br><br>
+<h3 style="font-family: Times New Roman;color: black;">Manifold</h3><br><br>
       <label for="manifold_size">Size</label>
     <select id="manifold_size" name="manifold_size" required>
         <option value="">--Select Size--</option>
@@ -185,7 +193,7 @@ input[type=submit]:hover {
 
     </select> -->
 
-  
+
        <div class="">
             <table class="" style="" id="manifold_table1">
                <thead>
@@ -193,7 +201,7 @@ input[type=submit]:hover {
                          <th style="width: 212px;text-align: center;">Accessories</th>
                                <th style="width: 212px;text-align: center;">Size</th>
                               <th style="width: 212px;text-align: center;">type</th>
-                              <th style="width: 212px;text-align: center;">Quntity</th>
+                              <th style="width: 212px;text-align: center;">quantity</th>
                               <th style="width: 212px;text-align: center;">Price</th>
 
                             <th style="width: 125px;text-align: center">Action</th>
@@ -218,7 +226,7 @@ input[type=submit]:hover {
                                       </select>
                               </td>
                                <td>
-                                    <input type="text"  style="width: 207px; margin-left: 18px;" id="manifold_access_quntity" onblur="show_manifold_acccess_price(this)" name="manifold_access_quntity" placeholder="Quntity..">
+                                    <input type="text"  style="width: 207px; margin-left: 18px;" id="manifold_access_quantity" onblur="show_manifold_acccess_price(this)" name="manifold_access_quantity" placeholder="quantity..">
                                </td>
                               <td>
                                  <input type="text" style="width: 207px; margin-left: 18px;" id="manifold_access_price" name="manifold_access_price" placeholder="Price..">
@@ -232,7 +240,7 @@ input[type=submit]:hover {
             </table>
      </div>
 
-<h3>Headers</h3><br><br>
+<h3 style="font-family: Times New Roman;color: black;">Headers</h3><br><br>
 
 <div>
     <label for="headers_size">Size</label>
@@ -263,7 +271,7 @@ input[type=submit]:hover {
 
 <label for="price_headerr" id="price_headerr" style="display:none">Price</label>
     <input type="text" required id="price_header" name="price_header" placeholder="Price.." style="display:none">
-<!-- 
+<!--
  <label for="headers_accessories">Accessories</label>
     <select id="headers_accessories" onchange="show_size_type_header(this)" name="headers_accessories">
       <option>--Select Accessories--</option>
@@ -286,7 +294,7 @@ input[type=submit]:hover {
                          <th style="width: 212px;text-align: center;">Accessories</th>
                                <th style="width: 212px;text-align: center;">Size</th>
                               <th style="width: 212px;text-align: center;">type</th>
-                              <th style="width: 212px;text-align: center;">Quntity</th>
+                              <th style="width: 212px;text-align: center;">quantity</th>
                               <th style="width: 212px;text-align: center;">Price</th>
 
                             <th style="width: 125px;text-align: center">Action</th>
@@ -311,7 +319,7 @@ input[type=submit]:hover {
                                       </select>
                               </td>
                                <td>
-                                    <input type="text"  style="width: 207px; margin-left: 18px;" id="header_access_quntity" onblur="show_header_acccess_price(this)" name="header_access_quntity" placeholder="Quntity..">
+                                    <input type="text"  style="width: 207px; margin-left: 18px;" id="header_access_quantity" onblur="show_header_acccess_price(this)" name="header_access_quantity" placeholder="quantity..">
                                </td>
                               <td>
                                  <input type="text" style="width: 207px; margin-left: 18px;" id="header_access_price" name="header_access_price" placeholder="Price..">
@@ -347,8 +355,11 @@ input[type=submit]:hover {
 
     </div>
   </form>
-</div>
+
+
 </body>
+    </div>
+
 <style>
 table {
   border-collapse: collapse;
@@ -362,6 +373,7 @@ table, td, th {
 
 
 </style>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
 
@@ -625,7 +637,7 @@ table, td, th {
                 }
 
             })
-          }        
+          }
 
 
 
@@ -679,7 +691,7 @@ var dynamicid =$('#dynamicid').val()
       function addmore(){
            var dynamicid =Number($('#dynamicid').val())
            var dynamicid = dynamicid + 1;
-          html1 = '<tr id="droppipe_table_' + dynamicid + '"> <td><select style="width: 207px; margin-left: 18px;" onchange="show_size_type_droppipe(this,'+ dynamicid+')" id="droppipe_accessories_' + dynamicid + '" name="droppipe_accessories"><option>--Select Accessories--</option>{% for a in accessories_droppipe %}<option value={{ a.id }}>{{ a.name }}</option>{% endfor %}</select> </td><td><select style="display:none;width: 207px; margin-left: 18px;" id="access_size_' + dynamicid + '" name="access_size"></select></td><td><select style="display:none;width: 207px; margin-left: 18px;" id="access_type_' + dynamicid + '" name="access_type"></select></td><td><input type="text"  style="width: 207px; margin-left: 18px;" id="droppipe_access_quntity_' + dynamicid + '" name="droppipe_quantity" onblur="show_acccess_price1(this,'+ dynamicid +')" placeholder="Quntity"></td><td><input type="text" style="width: 207px; margin-left: 18px;" id="droppipe_access_price_' + dynamicid + '" name="droppipe_price" placeholder="Price.."></td><td><div class="input-group-btn box-cell box3" style="margin-top: 25px !important;"><button style="margin-left: 27px;" class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-plus"></i> Remove</button></div></td></tbody>'
+          html1 = '<tr id="droppipe_table_' + dynamicid + '"> <td><select style="width: 207px; margin-left: 18px;" onchange="show_size_type_droppipe(this,'+ dynamicid+')" id="droppipe_accessories_' + dynamicid + '" name="droppipe_accessories"><option>--Select Accessories--</option>{% for a in accessories_droppipe %}<option value={{ a.id }}>{{ a.name }}</option>{% endfor %}</select> </td><td><select style="display:none;width: 207px; margin-left: 18px;" id="access_size_' + dynamicid + '" name="access_size"></select></td><td><select style="display:none;width: 207px; margin-left: 18px;" id="access_type_' + dynamicid + '" name="access_type"></select></td><td><input type="text"  style="width: 207px; margin-left: 18px;" id="droppipe_access_quantity_' + dynamicid + '" name="droppipe_quantity" onblur="show_acccess_price1(this,'+ dynamicid +')" placeholder="quantity"></td><td><input type="text" style="width: 207px; margin-left: 18px;" id="droppipe_access_price_' + dynamicid + '" name="droppipe_price" placeholder="Price.."></td><td><div class="input-group-btn box-cell box3" style="margin-top: 25px !important;"><button style="margin-left: 27px;" class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-plus"></i> Remove</button></div></td></tbody>'
           $("#droppipe_table").append(html1);
           $('#dynamicid').val(dynamicid)
       }
@@ -695,7 +707,7 @@ var dynamicid =$('#dynamicid').val()
       function manifold_addmore(){
            var dynamicid =Number($('#dynamicid').val())
            var dynamicid = dynamicid + 1;
-          html1 = '<tr id="manifold_table_' + dynamicid + '"> <td><select style="width: 207px; margin-left: 18px;" onchange="show_size_type_manifold(this,'+ dynamicid+')" id="manifold_accessories_' + dynamicid + '" name="manifold_accessories"><option>--Select Accessories--</option>{% for a in accessories_manifold %}<option value={{ a.id }}>{{ a.name }}</option>{% endfor %}</select> </td><td><select style="display:none;width: 207px; margin-left: 18px;" id="manifold_size_' + dynamicid + '" name="access_manifold_size"></select></td><td><select style="display:none;width: 207px; margin-left: 18px;" id="manifold_type_' + dynamicid + '" name="access_manifold_type"></select></td><td><input type="text"  style="width: 207px; margin-left: 18px;" id="manifold_access_quntity_' + dynamicid + '" name="manifold_access_quntity" onblur="show_manifold_acccess_price(this,'+ dynamicid +')" placeholder="Quntity"></td><td><input type="text" style="width: 207px; margin-left: 18px;" id="manifold_access_price_' + dynamicid + '" name="manifold_access_price" placeholder="Price.."></td><td><div class="input-group-btn box-cell box3" style="margin-top: 25px !important;"><button style="margin-left: 27px;" class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-minus"></i> Remove</button></div></td></tbody>'
+          html1 = '<tr id="manifold_table_' + dynamicid + '"> <td><select style="width: 207px; margin-left: 18px;" onchange="show_size_type_manifold(this,'+ dynamicid+')" id="manifold_accessories_' + dynamicid + '" name="manifold_accessories"><option>--Select Accessories--</option>{% for a in accessories_manifold %}<option value={{ a.id }}>{{ a.name }}</option>{% endfor %}</select> </td><td><select style="display:none;width: 207px; margin-left: 18px;" id="manifold_size_' + dynamicid + '" name="access_manifold_size"></select></td><td><select style="display:none;width: 207px; margin-left: 18px;" id="manifold_type_' + dynamicid + '" name="access_manifold_type"></select></td><td><input type="text"  style="width: 207px; margin-left: 18px;" id="manifold_access_quantity_' + dynamicid + '" name="manifold_access_quantity" onblur="show_manifold_acccess_price(this,'+ dynamicid +')" placeholder="quantity"></td><td><input type="text" style="width: 207px; margin-left: 18px;" id="manifold_access_price_' + dynamicid + '" name="manifold_access_price" placeholder="Price.."></td><td><div class="input-group-btn box-cell box3" style="margin-top: 25px !important;"><button style="margin-left: 27px;" class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-minus"></i> Remove</button></div></td></tbody>'
           $("#manifold_table").append(html1);
           $('#dynamicid').val(dynamicid)
       }
@@ -710,7 +722,7 @@ var dynamicid =$('#dynamicid').val()
       function header_addmore(){
            var dynamicid =Number($('#dynamicid').val())
            var dynamicid = dynamicid + 1;
-          html1 = '<tr id="header_table_' + dynamicid + '"> <td><select style="width: 207px; margin-left: 18px;" onchange="show_size_type_header(this,'+ dynamicid+')" id="header_accessories_' + dynamicid + '" name="header_accessories"><option>--Select Accessories--</option>{% for a in accessories_droppipe %}<option value={{ a.id }}>{{ a.name }}</option>{% endfor %}</select> </td><td><select style="display:none;width: 207px; margin-left: 18px;" id="header_size_' + dynamicid + '" name="headers_size"></select></td><td><select style="display:none;width: 207px; margin-left: 18px;" id="header_type_' + dynamicid + '" name="headers_type"></select></td><td><input type="text"  style="width: 207px; margin-left: 18px;" id="header_access_quntity_' + dynamicid + '" name="header_access_quntity" onblur="show_header_acccess_price(this,'+ dynamicid +')" placeholder="Quntity"></td><td><input type="text" style="width: 207px; margin-left: 18px;" id="header_access_price_' + dynamicid + '" name="header_access_price" placeholder="Price.."></td><td><div class="input-group-btn box-cell box3" style="margin-top: 25px !important;"><button style="margin-left: 27px;" class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-minus"></i> Remove</button></div></td></tbody>'
+          html1 = '<tr id="header_table_' + dynamicid + '"> <td><select style="width: 207px; margin-left: 18px;" onchange="show_size_type_header(this,'+ dynamicid+')" id="header_accessories_' + dynamicid + '" name="header_accessories"><option>--Select Accessories--</option>{% for a in accessories_droppipe %}<option value={{ a.id }}>{{ a.name }}</option>{% endfor %}</select> </td><td><select style="display:none;width: 207px; margin-left: 18px;" id="header_size_' + dynamicid + '" name="headers_size"></select></td><td><select style="display:none;width: 207px; margin-left: 18px;" id="header_type_' + dynamicid + '" name="headers_type"></select></td><td><input type="text"  style="width: 207px; margin-left: 18px;" id="header_access_quantity_' + dynamicid + '" name="header_access_quantity" onblur="show_header_acccess_price(this,'+ dynamicid +')" placeholder="quantity"></td><td><input type="text" style="width: 207px; margin-left: 18px;" id="header_access_price_' + dynamicid + '" name="header_access_price" placeholder="Price.."></td><td><div class="input-group-btn box-cell box3" style="margin-top: 25px !important;"><button style="margin-left: 27px;" class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-minus"></i> Remove</button></div></td></tbody>'
           $("#header_table").append(html1);
           $('#dynamicid').val(dynamicid)
       }
@@ -721,5 +733,6 @@ var dynamicid =$('#dynamicid').val()
       });
 
 </script>
+
 
 </html>

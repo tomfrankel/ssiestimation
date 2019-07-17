@@ -71,7 +71,7 @@ def index(request):
         manifold_access_size = request.POST.getlist('access_manifold_size', None)
         manifold_access_type = request.POST.getlist('access_manifold_type', None)
         manifold_price = request.POST.getlist('manifold_access_price', 0)
-        manifold_quantity = request.POST.getlist('manifold_access_quntity', 0)
+        manifold_quantity = request.POST.getlist('manifold_access_quantity', 0)
         manifold_asses_assessories_list = []
         if manifold_asses_assessories:
             for i in manifold_asses_assessories:
@@ -105,7 +105,7 @@ def index(request):
         header_access_size = request.POST.getlist('headers_size', None)
         header_access_type = request.POST.getlist('headers_type', None)
         header_price = request.POST.getlist('header_access_price', 0)
-        header_quantity = request.POST.getlist('header_access_quntity', 0)
+        header_quantity = request.POST.getlist('header_access_quantity', 0)
         header_asses_assessories_list = []
         if header_asses_assessories:
             for i in header_asses_assessories:
@@ -394,7 +394,7 @@ def calculate_details(request):
     manifold_access_size = request.POST.getlist('access_manifold_size',None)
     manifold_access_type = request.POST.getlist('access_manifold_type',None)
     manifold_price = request.POST.getlist('manifold_access_price',0)
-    manifold_quantity = request.POST.getlist('manifold_access_quntity',0)
+    manifold_quantity = request.POST.getlist('manifold_access_quantity',0)
     manifold_asses_assessories_list = []
     if manifold_asses_assessories:
         for i in manifold_asses_assessories:
@@ -427,7 +427,7 @@ def calculate_details(request):
     header_access_size = request.POST.getlist('headers_size',None)
     header_access_type = request.POST.getlist('headers_type',None)
     header_price = request.POST.getlist('header_access_price',0)
-    header_quantity = request.POST.getlist('header_access_quntity',0)
+    header_quantity = request.POST.getlist('header_access_quantity',0)
     header_asses_assessories_list = []
     if header_asses_assessories:
         for i in header_asses_assessories:
